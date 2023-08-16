@@ -36,7 +36,9 @@ if __name__ == "__main__":
             data.append(row)
 
     if now.day > args.day:
-        now = now - timedelta(days = now.day - args.day)
+        month = now.month + 1 if now.month < 12 else 1
+        year = now.year + 1 if month == 1 else now.year
+        now = now.replace(year, month, day=args.day)
     if now.day < args.day:
         now = now + timedelta(days = args.day - now.day)
     end = (now + timedelta(weeks = 2)).day - 1
