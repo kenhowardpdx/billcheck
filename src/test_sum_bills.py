@@ -33,7 +33,6 @@ def test_sum_bills():
             "Due Date": 4,
             "Amount": 4
         }
-
     ]
     filtered_bills, total = sum_bills(bills, 2, 3)
 
