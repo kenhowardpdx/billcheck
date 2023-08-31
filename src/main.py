@@ -1,6 +1,7 @@
 import argparse
 import json
 import os
+from currency.usd import usd
 from datetime import datetime, timedelta
 from totals import get_totals
 
@@ -44,6 +45,6 @@ if __name__ == "__main__":
     end = (now + timedelta(weeks = 2)).day - 1
 
     (bills, income, remainder) = get_totals(data, args.check, beginning_balance = args.balance, cycles = args.cycles, start_date = now, verbose = args.verbose)
-    print(f"Total Income: ${income}")
-    print(f"Total Bills: ${bills}")
-    print(f"Remaining Balance: ${remainder}")
+    print(f"Total Income: {usd(income)}")
+    print(f"Total Bills: {usd(bills)}")
+    print(f"Remaining Balance: {usd(remainder)}")
